@@ -25,15 +25,15 @@ terraform {
 ################################################################################
 resource "azurerm_resource_group" "devops" {
   name     = "${var.env}-${var.project}-RG"
-  location = "${var.az_region}"
+  location = var.az_region
 }
 
 # Create Security Group
 ################################################################################
 resource "azurerm_network_security_group" "devops" {
   name                = "${var.project}-NSG"
-  location            = "${azurerm_resource_group.devops.location}"
-  resource_group_name = "${azurerm_resource_group.devops.name}"
+  location            = azurerm_resource_group.devops.location
+  resource_group_name = azurerm_resource_group.devops.name
 }
 
 # Create VNET
@@ -42,13 +42,13 @@ resource "azurerm_network_security_group" "devops" {
 
 resource "azurerm_virtual_network" "devops" {
   name                = "${var.project}-VNET"
-  location            = "${azurerm_resource_group.devops.location}"
-  resource_group_name = "${azurerm_resource_group.devops.name}"
+  location            = azurerm_resource_group.devops.location
+  resource_group_name = azurerm_resource_group.devops.name
   address_space       = ["10.0.0.0/16"]
   dns_servers         = ["8.8.8.8"]
 
   tags = {
-    environment = "${var.env}"
+    environment = var.env
   }
 }
 
@@ -56,25 +56,25 @@ resource "azurerm_virtual_network" "devops" {
 ################################################################################
 
 resource "azurerm_subnet" "devopsapp" {
-  name                 = "${var.project}-${var.env}-app-subnet"
-  resource_group_name  = "${azurerm_resource_group.devops.name}"
-  virtual_network_name = "${azurerm_virtual_network.devops.name}"
+  name                 = var.project}-${var.env}-app-subnet
+  resource_group_name  = azurerm_resource_group.devops.name
+  virtual_network_name = azurerm_virtual_network.devops.name
   address_prefix       = "10.0.1.0/24"
   
 }
 
 resource "azurerm_subnet" "devopsweb" {
   name                 = "${var.project}-${var.env}-web-subnet"
-  resource_group_name  = "${azurerm_resource_group.devops.name}"
-  virtual_network_name = "${azurerm_virtual_network.devops.name}"
+  resource_group_name  = azurerm_resource_group.devops.name
+  virtual_network_name = azurerm_virtual_network.devops.name
   address_prefix       = "10.0.2.0/24"
   
 }
 
 resource "azurerm_subnet" "devopsdb" {
   name                 = "${var.project}-${var.env}-db-subnet"
-  resource_group_name  = "${azurerm_resource_group.devops.name}"
-  virtual_network_name = "${azurerm_virtual_network.devops.name}"
+  resource_group_name  = azurerm_resource_group.devops.name
+  virtual_network_name = azurerm_virtual_network.devops.name
   address_prefix       = "10.0.3.0/24"
 
 }
@@ -85,8 +85,8 @@ resource "azurerm_subnet" "devopsdb" {
 ################################################################################
 resource "azurerm_route_table" "devops" {
   name                          = "${var.project}-${var.env}-route"
-  location                      = "${azurerm_resource_group.devops.location}"
-  resource_group_name           = "${azurerm_resource_group.devops.name}"
+  location                      = azurerm_resource_group.devops.location
+  resource_group_name           = azurerm_resource_group.devops.name
   disable_bgp_route_propagation = false
 
   route {
@@ -96,7 +96,7 @@ resource "azurerm_route_table" "devops" {
   }
 
   tags = {
-    environment = "${var.env}"
+    environment = var.env
   }
 }
 
@@ -126,7 +126,6 @@ module "whitelistsg" {
 
 resource "random_id" "randomId" {
     keepers = {
-        # Generate a new ID only when a new resource group is defined
         resource_group = "${azurerm_resource_group.devops.name}"
     }
     
@@ -155,37 +154,37 @@ resource "azurerm_storage_account" "devops" {
 module "bastion" {
  source = "./modules/bastion"
  vm_name = "bastion"
- project = "${var.project}"
- location= "${var.location}"
- resource_group_name = "${azurerm_resource_group.devops.name}"
- vm_size = "${var.vm_size}"
- vmtype = "RHEL"
- vmsku = "7.4"
- vm_useradmin = "${var.vm_useradmin}"
- public_key = "${var.public_key}"
- env = "${var.env}"
- #network_interface = "${azurerm_network_interface.devops.id}"
- primary_blob_endpoint = "${azurerm_storage_account.devops.primary_blob_endpoint}"
- network_security_group = "${module.whitelistsg.network_security_group_id}"
- subnet_id = "${azurerm_subnet.devopsapp.id}"
+ project = var.project
+ location= var.location
+ resource_group_name = azurerm_resource_group.devops.name
+ vm_size = var.vm_size
+ vmtype = var.vmtype
+ vmsku = var.vmsku
+ vm_useradmin = var.vm_useradmin
+ public_key = var.public_key
+ env = var.env
+ #network_interface = azurerm_network_interface.devops.id
+ primary_blob_endpoint = azurerm_storage_account.devops.primary_blob_endpoint
+ network_security_group = module.whitelistsg.network_security_group_id
+ subnet_id = azurerm_subnet.devopsapp.id
 }
 
 module "app" {
  source = "./modules/vm"
  vm_name = "app"
- project = "${var.project}"
- location= "${var.location}"
- resource_group_name = "${azurerm_resource_group.devops.name}"
- vm_size = "${var.vm_size}"
- vmtype = "RHEL"
- vmsku = "7.4"
- vm_useradmin = "${var.vm_useradmin}"
- public_key = "${var.public_key}"
- env = "${var.env}"
- #network_interface = "${azurerm_network_interface.devops.id}"
- primary_blob_endpoint = "${azurerm_storage_account.devops.primary_blob_endpoint}"
- network_security_group = "${azurerm_network_security_group.devops.id}"
- subnet_id = "${azurerm_subnet.devopsapp.id}"
+ project = var.project
+ location= var.location
+ resource_group_name = azurerm_resource_group.devops.name
+ vm_size = var.vm_size
+ vmtype = var.vmtype
+ vmsku = var.vmsku
+ vm_useradmin = var.vm_useradmin
+ public_key = var.public_key
+ env = var.env
+ #network_interface = azurerm_network_interface.devops.id
+ primary_blob_endpoint = azurerm_storage_account.devops.primary_blob_endpoint
+ network_security_group = azurerm_network_security_group.devops.id
+ subnet_id = azurerm_subnet.devopsapp.id
 }
 
 ## Create Database
@@ -198,9 +197,9 @@ module "adb" {
  source = "./modules/db/postgres"
  db_name = "db"
  db_type = "postgres"
- project = "${var.project}"
- location= "${var.location}"
- resource_group_name = "${azurerm_resource_group.devops.name}"
+ project = var.project
+ location= var.location
+ resource_group_name = azurerm_resource_group.devops.name
  sku_name = "B_Gen5_2"
  sku_capacity = "2"
  sku_tier = "Basic"
@@ -208,8 +207,8 @@ module "adb" {
  storage_mb  = "5120"
  backup_retention_days = "7"
  geo_redundant_backup  = "Disabled"
- db_useradmin= "${var.db_useradmin}"
- db_password = "${var.db_password}"
+ db_useradmin= var.db_useradmin
+ db_password = var.db_password
  db_version = "9.5"
 
 }
@@ -219,12 +218,12 @@ module "adb" {
 ## 
 
 /*
-module "jenkins-backup" {
+module "app-backup" {
  source = "./modules/backup"
- vm_id = "${module.jenkins.vm_id}"
- project = "${var.project}"
- location= "${var.location}"
- resource_group_name = "${azurerm_resource_group.devops.name}"
+ vm_id = module.app.vm_id
+ project = var.project
+ location= var.location
+ resource_group_name = azurerm_resource_group.devops.name
  backup_frequency = "Daily"
  backup_time = "23:00"
 }
@@ -241,10 +240,10 @@ module "jenkins-backup" {
 /*
 module "lb" {
  source = "./modules/lb"
- project = "${var.project}"
- location= "${var.location}"
- resource_group_name = "${azurerm_resource_group.devops.name}"
- env = "${var.env}"
+ project = var.project
+ location= var.location
+ resource_group_name = azurerm_resource_group.devops.name
+ env = var.env
 }
 */
 
@@ -254,9 +253,12 @@ module "lb" {
 # Public IP 
 resource "azurerm_public_ip" "app" {
   name                         = "${var.project}-apg_public_ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.devops.name}"
+  location                     = var.location
+  resource_group_name          = azurerm_resource_group.devops.name
   allocation_method            = "Static"
   sku                          = "Standard"
 }
+  
+## DNS Record
+################################################################################
 
