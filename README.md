@@ -110,7 +110,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 * 
 * Puppet / Ansible recipie for EC2 Configuration
 
-## AWS Architecture
+## Azure Architecture
 ![alt text](/images/them.png "AWS diagram")
 
 ## Jenkins Automation
