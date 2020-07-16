@@ -65,14 +65,10 @@ We are expecting:
 * For Terratest --> Go v0.13
 
 ### Constrains
-* Replace key_name with your current pem
-* Replace public key with the public key of your Pem for the Remote Provisioner.
-* Replace Route 53 Zone ID
-* Replace Domain Name with your current domain
-* Replace SSL arn with current 
+* Blob Storage for Terraform State
 
 ## Improvement tbd
-* S3 Backend with State Lock
+* 
 * Puppet / Ansible recipie for EC2 Configuration
 
 ## AWS Architecture
