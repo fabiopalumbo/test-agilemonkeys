@@ -58,6 +58,45 @@ We are expecting:
 3. Details on how those resources work. 
 ```
 
+## Questions
+```
+User / Permissions Migration
+Are the users using auth/authentication federated service? SSO auth?
+User’s apply through filling out forms without the necessity of creating an account with the bank (it is open to anyone) so there should be no auth involved.
+In the future we might incorporate federated auth that will allow us to fill out some information that we currently request to users. So any prep work for the future would be great.
+Data Migration
+Are we planning to migrate Oracle “As is” with license
+Yes. However, we are open to suggestions if we could cut cost but keeping the performance and reliability.
+Are there any restrictions on the application’s geographic storage location?
+Due to the regulations of the country in which the bank is located (assume a EU country) the data layer must be physically stored in the EU and we need to know where exactly data is located at any point in time.
+Is the data/application subject to robust regulatory protocols?
+Yes, since we are dealing with sensitive data, we have to comply with EU regulations, such as GDPR and also comply with financial rules
+Interface System Constraints
+The External API call to Equifax have any constrains? concurrency? limits?
+Equifax has a rate limit of 100 API request per second. This service is widely consumed by other companies and services.
+Is the online form storing data in the db directly using the monolithic service?
+Yes
+Is the application run in a certain os system?
+The application currently runs under Red Hat Enterprise Linux
+Is the Amount calculator process and VerifyClient process in the same monolithic architecture?
+Nope, they are part of the services available in the on-premise infrastructure.
+Is the application run in un monolithic process or is an instance with several proceses in it?
+Currently, it is a monolithic process in a machine with many other processes happening. However, due to the expected growth of the company in the following year, we are considering more efficient and scalable workflows.
+Is the online form static content? and of our ownership?
+The online form has static content and it is owned by us.
+Budget
+Do we have budget limitations?
+As many other financial enterprises, we are heavily investing in technology and budget should not be an issue. However, it would be great to have some realistic figure on the expected cost per month once we move to the cloud.
+Performance and Scalability
+Do we have the need of a high available System?
+Yes, since the enrollment for credit cards can happen at any time, we cannot afford missing a potential customer due to our technology stack
+Will we gather metrics? Application side, service mesh?
+We should gather metrics, on the application side we should be able at least to tell how many people entered the site, filled out the form, or left, etc.
+On the server side we should be monitoring load and performance and be proactive.
+Do we currently use any kind of Automation CICD tool? Code quality check?
+CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, integration testing, ui testing), linting, we also run some pen testing tools to avoid potential security breaches due to malicious code.
+```
+
 ## Requirement
 * Azure with a Visual Studio Subscription
 * Jenkins
