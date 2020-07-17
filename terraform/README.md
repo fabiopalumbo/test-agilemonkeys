@@ -1,12 +1,8 @@
 # Basic 3-Tier AWS Architecture
 
-This provides a simple two-tier architecture on Azure Services. 
+This provides a simple 3-tier architecture on Azure Services. 
 
-The premise is that you have stateless app servers running behind
-an LB serving traffic.
-
-
-Ww will create 1 bastion host for adminsitration and LB + VM instances with an ASG for escalation
+Ww will create 1 bastion host for adminsitration and Serverles Frontend + VM instances for Backend with an ASG for escalation
 
 ![alt text](../Images/them_new_architecture.png)
 
@@ -28,6 +24,8 @@ This architecture builds and includes the following components:
 
 *VM instance with ASG* Legacy process will be handled and deployed in a VM instance with an ASG attached to it, ASG scaling rule will be base on CPU consumption.
 
+*Database* a SQL instance will be deployed, and a Data Migration plan to Mirror the current Schema to the new DB.
+
 *Queue*. In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a the process app. Alternatively, we can use Service Bus queues. 
 
 *CDN*. Use Azure Content Delivery Network (CDN) to cache publicly available content for lower latency and faster delivery of content.
@@ -35,6 +33,8 @@ This architecture builds and includes the following components:
 *Data storage*. Use Azure SQL Database for relational data. 
 
 *Azure DNS*. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+
+*Express Route* Will be user to handle conenction with On-premise core applications withouth going to the public layer-
 
 
 ## Apply
@@ -50,12 +50,12 @@ https://www.terraform.io/docs/providers/azurem/index.html
 Run with a command like this:
 
 ```
-terraform apply -var ''    
+terraform apply -var 'to be defined'    
 ```
 
 
 For example:
 
 ```
-terraform apply -var ''    
+terraform apply -var 'to be defined'    
 ```
