@@ -139,6 +139,41 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 
 
 ```
+## Observability
+Four Golden Signals
+
+It's very easy to create dashboards with dozens of meaningless machine and application metrics, time-series graphs, and dashboards full of widgets that will only serve to overwhelm you and hide the truth.
+
+The Four Golden Signals is a framework that aims to increase signal and reduce noise, increasing the likelihood that you're paying attention to the performance indicators that have the largest impact on your systems.
+
+They can be used for all systems: technological or human, automated or organizational.
+
+```
+Latency
+Traffic
+Errors
+Saturation
+```
+
+Latency
+What: How long something takes to respond or complete
+Why: Direct impact on customer experience
+
+Traffic
+What: Total volume of work being done (or attempted)
+Why: Generally has a relationship to business volume, which maps directly to business value.
+
+
+Errors
+What: Self explanatory! Usually expressed as a ratio of (# Failed Requests)/(# Successful Requests), which yields a simple, clearly defined target to aim for.
+Why: A solid indication of customer experience and the value - or lack thereof - being derived from our services. It's also so simple to understand that it is accessible to anyone in the organization, making it a very powerful indicator.
+
+Saturation
+What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
+Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
+
+
+
 # Migration
 ![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3. "Migration").
 
