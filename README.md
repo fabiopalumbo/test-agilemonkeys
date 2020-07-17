@@ -172,7 +172,13 @@ Saturation
 What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
 Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
 
+# Permissions in this new account
 
+Best Practices
+* Enable multi-factor authentication (MFA) for privileged users
+* Use Groups to Assign Permissions to Users through Active directory
+* Least Privileged 
+![alt text](/Images/them_permissions.png "Permissions")
 
 # Migration
 ![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3. "Migration").
