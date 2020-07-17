@@ -30,6 +30,6 @@ resource "azurerm_cdn_endpoint" "app" {
 
   origin {
     name      = "consents-documents"
-    host_name = azurerm_storage_account.appstorage.name}.blob.core.windows.net
+    host_name = "${azurerm_storage_account.appstorage.name}.blob.core.windows.net"
   }
 }
