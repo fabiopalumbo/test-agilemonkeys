@@ -149,7 +149,7 @@ resource "azurerm_storage_account" "devops" {
 
 ## Create Vms
 ################################################################################
-## bastion app
+## bastion / app with asg
 
 module "bastion" {
  source = "./modules/bastion"
@@ -186,7 +186,8 @@ module "app" {
  network_security_group = azurerm_network_security_group.devops.id
  subnet_id = azurerm_subnet.devopsapp.id
 }
-
+  
+  
 ## Create Database
 ################################################################################
 ## Oracle DB 
