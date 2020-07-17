@@ -79,7 +79,13 @@ resource "azurerm_subnet" "devopsdb" {
 
 }
 
+resource "azurerm_subnet" "devopspublic" {
+  name                 = "${var.project}-${var.env}-public-subnet"
+  resource_group_name  = azurerm_resource_group.devops.name
+  virtual_network_name = azurerm_virtual_network.devops.name
+  address_prefix       = "10.0.4.0/24"
 
+}
 
 ## Create Route
 ################################################################################
@@ -166,7 +172,7 @@ module "bastion" {
  #network_interface = azurerm_network_interface.devops.id
  primary_blob_endpoint = azurerm_storage_account.devops.primary_blob_endpoint
  network_security_group = module.whitelistsg.network_security_group_id
- subnet_id = azurerm_subnet.devopsapp.id
+ subnet_id = azurerm_subnet.devopspublic.id
 }
 
 module "app" {
@@ -193,7 +199,7 @@ module "app" {
 ## Oracle DB 
 
 
-module "adb" {
+module "db" {
  source = "./modules/db"
  db_name = "db"
  db_type = "mysql"
