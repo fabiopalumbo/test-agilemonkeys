@@ -152,8 +152,13 @@ Replatforming lets you move some workloads to the cloud, experiment with the clo
 Re-platforming allows applications to leverage cloud capabilities like auto-scaling, managed storage and data processing services, infrastructure as code (IaC), and more.
 
 ## App Migration Plan
-We will create a DNS record
+We will create a DNS record, with a blue green Deployment Strategy automated to Azure Cloud.
+When the App is smoke tested and ready we will switch the LB to the new DNS record.
+
 ## Database Migration Plan
+Offline versus online migrations
+When you migrate databases to Azure by using Azure Database Migration Service, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.
+
 
 ## Budget Calculation
 
