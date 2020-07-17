@@ -1,40 +1,35 @@
-resource "azurerm_cdn_profile" "example" {
-  name                = "example-cdn"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-  sku                 = "Standard_Verizon"
+
+resource "azurerm_storage_account" "appstorage" {
+  name                      = "appstorage${var.environment}"
+  resource_group_name       = var.environment
+  location                  = var.location
+  account_tier              = "Standard"
+  account_replication_type  = "RAGRS"
+  account_kind              = "BlobStorage"
 }
 
-resource "azurerm_cdn_endpoint" "example" {
-  name                = "example"
-  profile_name        = azurerm_cdn_profile.example.name
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_storage_container" "blob" {
+  name                  = "blob"
+  resource_group_name   = var.environment
+  storage_account_name  = azurerm_storage_account.appstorage.name
+  container_access_type = "blob"
+}
+
+resource "azurerm_cdn_profile" "app_cdn_profile" {
+  name                = "app-cdn-profile-${var.environment}"
+  location            = var.location}"
+  resource_group_name = var.environment
+  sku                 = "Standard_Akamai"
+}
+
+resource "azurerm_cdn_endpoint" "app" {
+  name                = "app${var.environment}"
+  profile_name        = azurerm_cdn_profile.app_cdn_profile.name
+  location            = var.location
+  resource_group_name = var.environment
 
   origin {
-    name      = "example"
-    host_name = "www.contoso.com"
+    name      = "consents-documents"
+    host_name = azurerm_storage_account.appstorage.name}.blob.core.windows.net
   }
-}
-
-resource "azurerm_storage_account" "example" {
-  name                     = "examplestoracc"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-resource "azurerm_storage_container" "example" {
-  name                  = "content"
-  storage_account_name  = azurerm_storage_account.example.name
-  container_access_type = "private"
-}
-
-resource "azurerm_storage_blob" "example" {
-  name                   = "my-awesome-content.zip"
-  storage_account_name   = azurerm_storage_account.example.name
-  storage_container_name = azurerm_storage_container.example.name
-  type                   = "Block"
-  source                 = "some-local-file.zip"
 }
