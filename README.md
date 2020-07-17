@@ -115,7 +115,7 @@ On the server side we should be monitoring load and performance and be proactive
 Do we currently use any kind of Automation CICD tool? Code quality check?
 CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, integration testing, ui testing), linting, we also run some pen testing tools to avoid potential security breaches due to malicious code.
 ```
-## Current Architecture Diagram
+# Current Architecture Diagram
 ![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
 ## Requirement
@@ -127,7 +127,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ### Constrains
 * Blob Storage for Terraform State
 
-## Proposed Azure Architecture
+# Proposed Azure Architecture
 ![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Jenkins Automation
@@ -136,11 +136,40 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ## Terratest
 ```
 ------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 
 ```
+# Migration
+![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3 "Migration").
+
+Advantages of Replatforming
+* Cost-efficient
+This approach is cost effective and does not require a major development project.
+* Start small and scale as needed
+Replatforming lets you move some workloads to the cloud, experiment with the cloud environment, learn lessons and then move on to other workloads, without committing to a large migration effort.
+* Cloud-native functionalit
+Re-platforming allows applications to leverage cloud capabilities like auto-scaling, managed storage and data processing services, infrastructure as code (IaC), and more.
 
 ## App Migration Plan
-
+We will create a DNS record
 ## Database Migration Plan
+
+## Budget Calculation
+
+Ref. https://azure.microsoft.com/en-us/pricing/tco/calculator/
+
+# Next Steps
+
+## Event-Driven Architecture as a Solution
+As well as you can build your systems with event-driven structures, you can also use it as a solution to your already built highly coupled environments. Let’s discuss how we can apply the event-driven approach as a solution.
+
+##Converting to Event Messaging
+
+Above all, our plan was simple:
+* Publish an event when a transaction item created
+* Fetch the related data when event received
+* Convert to a piece of report string
+* Persist in the RDBMS (SQL)
+* Query data when generating the report
+Concat the string data and persist as a file to disk
