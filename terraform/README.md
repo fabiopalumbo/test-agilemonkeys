@@ -8,7 +8,7 @@ an LB serving traffic.
 
 Ww will create 1 bastion host for adminsitration and LB + VM instances with an ASG for escalation
 
-![alt text](../Images/them_new_arch.ong")
+![alt text](../Images/them_new_architecture.png")
 
 ## Proposed Architecture
 # Replataform
