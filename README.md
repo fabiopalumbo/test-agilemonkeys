@@ -128,6 +128,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 
 ### Constrains
 * Blob Storage for Terraform State
+* Due to GDPR compliance we will store our data resources under in eu-west region
 
 ## Jenkins Automation
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
@@ -172,13 +173,23 @@ Saturation
 What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
 Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
 
-# Permissions in this new account
+## Permissions in this new account
 
 Best Practices
 * Enable multi-factor authentication (MFA) for privileged users
 * Use Groups to Assign Permissions to Users through Active directory
 * Least Privileged 
 ![alt text](/Images/them_permissions.png "Permissions")
+
+## Disaster Recovery Plan
+* Due to the determination of the RTO y RPO we will desing a strategy based in:
+** Bakend layer autoscaling
+** Backup lifecycles of 24 hs por the Backend layer
+** Database Backup
+
+
+## Compliance
+* GDPR (data layer stored in EU-WEST)
 
 # Migration
 ![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3. "Migration").
