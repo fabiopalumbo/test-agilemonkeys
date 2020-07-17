@@ -158,8 +158,9 @@ When the App is smoke tested and ready we will switch the LB to the new DNS reco
 Offline versus online migrations
 When you migrate databases to Azure by using Azure Database Migration Service, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.
 
-We will use an Online approach with the Azure Data Factory appliance.
-https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/data-factory/v1/data-factory-onprem-oracle-connector.md
+We will use an Online approach with the Azure Database Migrate
+https://docs.microsoft.com/en-us/azure/dms/dms-overview
+
 
 ## Budget Calculation
 
