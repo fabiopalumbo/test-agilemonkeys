@@ -36,6 +36,7 @@ This architecture builds and includes the following components:
 
 *Express Route* Will be user to handle conenction with On-premise core applications withouth going to the public layer-
 
+*Cache*  Store semi-static data in Azure Cache for Redis from routine calls to Core process.
 
 ## Apply
 
