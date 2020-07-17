@@ -164,7 +164,7 @@ Ref. https://azure.microsoft.com/en-us/pricing/tco/calculator/
 ## Event-Driven Architecture as a Solution
 As well as you can build your systems with event-driven structures, you can also use it as a solution to your already built highly coupled environments. Let’s discuss how we can apply the event-driven approach as a solution.
 
-##Converting to Event Messaging
+## Converting to Event Messaging
 
 Above all, our plan was simple:
 * Publish an event when a transaction item created
@@ -172,4 +172,4 @@ Above all, our plan was simple:
 * Convert to a piece of report string
 * Persist in the RDBMS (SQL)
 * Query data when generating the report
-Concat the string data and persist as a file to disk
+
