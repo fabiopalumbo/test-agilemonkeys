@@ -1,4 +1,4 @@
-# Basic Two-Tier AWS Architecture
+# Basic 3-Tier AWS Architecture
 
 This provides a simple two-tier architecture on Azure Services. 
 
@@ -8,7 +8,7 @@ an LB serving traffic.
 
 Ww will create 1 bastion host for adminsitration and LB + VM instances with an ASG for escalation
 
-![alt text](../images/xxx")
+![alt text](../Images/them_new_arch.ong")
 
 ## Proposed Architecture
 # Replataform
@@ -26,11 +26,9 @@ This architecture builds and includes the following components:
 
 *Front Door*. Front Door is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a web application firewall (WAF) that protects the application from common exploits and vulnerabilities.
 
-*VM instance with ASG* 
+*VM instance with ASG* Legacy process will be handled and deployed in a VM instance with an ASG attached to it, ASG scaling rule will be base on CPU consumption.
 
-*Queue*. In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a the process app. Alternatively, you can use Service Bus queues. 
-
-*Cache*. Store semi-static data in Azure Cache for Redis.
+*Queue*. In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a the process app. Alternatively, we can use Service Bus queues. 
 
 *CDN*. Use Azure Content Delivery Network (CDN) to cache publicly available content for lower latency and faster delivery of content.
 
