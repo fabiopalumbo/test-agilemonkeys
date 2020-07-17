@@ -116,7 +116,7 @@ Do we currently use any kind of Automation CICD tool? Code quality check?
 CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, integration testing, ui testing), linting, we also run some pen testing tools to avoid potential security breaches due to malicious code.
 ```
 ## Current Architecture Diagram
-![alt text](/images/them_current_Arch.png "Azure Current diagram")
+![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
 ## Requirement
 * Azure with a Visual Studio Subscription
@@ -128,10 +128,10 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 * Blob Storage for Terraform State
 
 ## Proposed Azure Architecture
-![alt text](/images/them_new_architecture.png "Proposed Azure diagram")
+![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Jenkins Automation
-![alt text](/images/them_terratest.png "Jenkins Automation")
+![alt text](/Images/them_terratest.png "Jenkins Automation")
 
 ## Terratest
 ```
