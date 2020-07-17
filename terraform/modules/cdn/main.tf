@@ -17,7 +17,7 @@ resource "azurerm_storage_container" "blob" {
 
 resource "azurerm_cdn_profile" "app_cdn_profile" {
   name                = "app-cdn-profile-${var.environment}"
-  location            = var.location}"
+  location            = var.location
   resource_group_name = var.environment
   sku                 = "Standard_Akamai"
 }
