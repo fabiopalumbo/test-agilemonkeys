@@ -213,6 +213,12 @@ module "adb" {
 
 }
 
+## Alert metrics
+################################################################################
+## 
+  
+  
+  
 ## Backup Vms
 ################################################################################
 ## 
@@ -235,17 +241,6 @@ module "app-backup" {
 
 
 
-## Azure LB
-################################################################################
-/*
-module "lb" {
- source = "./modules/lb"
- project = var.project
- location= var.location
- resource_group_name = azurerm_resource_group.devops.name
- env = var.env
-}
-*/
 
 ## Services Networking 
 ################################################################################
