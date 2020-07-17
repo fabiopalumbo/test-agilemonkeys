@@ -57,6 +57,8 @@ We are expecting:
 2. The reasons to choose each resource in Azure.
 3. Details on how those resources work. 
 ```
+# Current Architecture Diagram
+![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
 ## Questions
 ```
@@ -115,8 +117,8 @@ On the server side we should be monitoring load and performance and be proactive
 Do we currently use any kind of Automation CICD tool? Code quality check?
 CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, integration testing, ui testing), linting, we also run some pen testing tools to avoid potential security breaches due to malicious code.
 ```
-# Current Architecture Diagram
-![alt text](/Images/them_current_Arch.png "Azure Current diagram")
+# Proposed Azure Architecture
+![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Requirement
 * Azure with a Visual Studio Subscription
@@ -126,9 +128,6 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 
 ### Constrains
 * Blob Storage for Terraform State
-
-# Proposed Azure Architecture
-![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Jenkins Automation
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
