@@ -83,6 +83,6 @@ resource "azurerm_virtual_machine" "devops" {
 data "azurerm_public_ip" "devops" {
   name                = azurerm_public_ip.devops.name
   resource_group_name = var.resource_group_name
-  depends_on          = ["azurerm_virtual_machine.devops"]
+  depends_on          = [azurerm_virtual_machine.devops]
 }
 
