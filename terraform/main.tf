@@ -245,7 +245,6 @@ module "alert_2" {
 ################################################################################
 ## 
 
-/*
 module "app-backup" {
  source = "./modules/backup"
  vm_id = module.app.vm_id
@@ -255,7 +254,6 @@ module "app-backup" {
  backup_frequency = "Daily"
  backup_time = "23:00"
 }
-*/
 
 
 ## Azure CDN
