@@ -30,7 +30,7 @@ resource "azurerm_app_service" "app-service" {
 
 resource "azurerm_frontdoor" "example" {
   name                                         = "${var.environment}-FrontDoor"
-  resource_group_name                          = var.resource_name
+  resource_group_name                          = var.resource_group_name
   enforce_backend_pools_certificate_name_check = false
 
   routing_rule {
