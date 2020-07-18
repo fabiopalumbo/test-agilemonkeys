@@ -2,8 +2,8 @@
 
 resource "azurerm_express_route_circuit" "this" {
   name                  = "${var.environment}expressRoute1"
-  resource_group_name   = azurerm_resource_group.example.name
-  location              = azurerm_resource_group.example.location
+  resource_group_name   = var.resource_group_name
+  location              = var.location
   service_provider_name = "Equinix"
   peering_location      = "Silicon Valley"
   bandwidth_in_mbps     = 50
@@ -21,7 +21,7 @@ resource "azurerm_express_route_circuit" "this" {
 # Queue
 resource "azurerm_storage_account" "this" {
   name                     = "${var.environment}storageacc"
-  resource_group_name      = var.resource_name
+  resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
@@ -29,19 +29,19 @@ resource "azurerm_storage_account" "this" {
 
 resource "azurerm_storage_queue" "this" {
   name                 = "${var.environment}queue"
-  storage_account_name =  var.resource_name
+  storage_account_name =  var.resource_group_name
 }
 
 ## DNS
 resource "azurerm_dns_zone" "this" {
   name                = var.domain
-  resource_group_name = var.resource_name
+  resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_dns_a_record" "example" {
   name                = "test"
   zone_name           = azurerm_dns_zone.this.name
-  resource_group_name =  var.resource_name
+  resource_group_name = var.resource_group_name
   ttl                 = 300
   records             = ["10.0.180.17"]
 }
