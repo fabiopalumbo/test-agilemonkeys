@@ -56,7 +56,7 @@ resource "azurerm_virtual_network" "devops" {
 ################################################################################
 
 resource "azurerm_subnet" "devopsapp" {
-  name                 = "${var.project}-${var.env}-app-subnet
+  name                 = "${var.project}-${var.env}-app-subnet"
   resource_group_name  = azurerm_resource_group.devops.name
   virtual_network_name = azurerm_virtual_network.devops.name
   address_prefix       = "10.0.1.0/24"
