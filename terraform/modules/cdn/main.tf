@@ -6,9 +6,6 @@ resource "azurerm_storage_account" "appstorage" {
   account_replication_type  = "LRS"
   account_tier              = "Standard"
 
-    tags = {
-        environment         = var.env
-    }  
 }
   
 resource "azurerm_storage_container" "blob" {
