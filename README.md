@@ -1,9 +1,31 @@
-# test-agilemonkeys
-A short test for Agile Monkeys
 
+
+# tTst-agilemonkeys
+A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px"></h2>
+
+<a href="https://www.linkedin.com/in/fppalumbo/">
+  <img align="left" alt="Ajay's Linkdein" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />
+</a>
+<a href="https://github.com/fabiopalumbo">
+  <img align="left" alt="Ajay's Github" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+</a>
+<br />
+<img align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
+
+### i am Fabio Palumbo
+- CKA 
+- Solution Architect AWS
+- Currently working on Azure 204 Certification
+- I love to learn and contribute in any and every possible way.
+
+⭐️ From [fabiopalumbo](https://https://github.com/fabiopalumbo/)
+
+
+## Current Architecture.
+<details>
+<summary>Sumary</summary>
 
 ```
-## Current Architecture.
 Let’s imagine that a Bank has a monolithic architecture to handle the enrollment for new credit cards.
 A potential customer will enter a bunch of data through some online forms.
 Once a day there will be a batch processing job that will process all this
@@ -57,20 +79,24 @@ We are expecting:
 2. The reasons to choose each resource in Azure.
 3. Details on how those resources work. 
 ```
+</details>
+
 # Current Architecture Diagram
 ![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
 ## Questions
+<details>
+<summary>User / Permissions Migration</summary>
 ```
-User / Permissions Migration
-
 Are the users using auth/authentication federated service? SSO auth?
 
 User’s apply through filling out forms without the necessity of creating an account with the bank (it is open to anyone) so there should be no auth involved.
 In the future we might incorporate federated auth that will allow us to fill out some information that we currently request to users. So any prep work for the future would be great.
-
-Data Migration
-
+```
+</details>
+<details>
+<summary>Data Migration</summary>
+```
 *Are we planning to migrate Oracle “As is” with license
 Yes. However, we are open to suggestions if we could cut cost but keeping the performance and reliability.
 
@@ -79,9 +105,11 @@ Due to the regulations of the country in which the bank is located (assume a EU 
 
 Is the data/application subject to robust regulatory protocols?
 Yes, since we are dealing with sensitive data, we have to comply with EU regulations, such as GDPR and also comply with financial rules
-
-Interface System Constraints
-
+```
+</details>
+<details>
+<summary>Interface System Constraints</summary>
+```
 The External API call to Equifax have any constrains? concurrency? limits?
 Equifax has a rate limit of 100 API request per second. This service is widely consumed by other companies and services.
 
@@ -99,13 +127,18 @@ Currently, it is a monolithic process in a machine with many other processes hap
 
 Is the online form static content? and of our ownership?
 The online form has static content and it is owned by us.
-
-Budget
-
+```
+</details>
+<details>
+<summary>Budget</summary>
+```
 Do we have budget limitations?
 As many other financial enterprises, we are heavily investing in technology and budget should not be an issue. However, it would be great to have some realistic figure on the expected cost per month once we move to the cloud.
-
-Performance and Scalability
+```
+</details>
+<details>
+<summary>Budget</summary>
+```
 
 Do we have the need of a high available System?
 Yes, since the enrollment for credit cards can happen at any time, we cannot afford missing a potential customer due to our technology stack
@@ -117,6 +150,8 @@ On the server side we should be monitoring load and performance and be proactive
 Do we currently use any kind of Automation CICD tool? Code quality check?
 CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, integration testing, ui testing), linting, we also run some pen testing tools to avoid potential security breaches due to malicious code.
 ```
+</details>
+
 # Proposed Azure Architecture
 ![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
@@ -134,12 +169,19 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
 
 ## Terratest
+
+
+<details>
+<summary>Summary</summary>
 ```
+
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
 
 ```
+</details>
+
 ## Observability
 Four Golden Signals
 
