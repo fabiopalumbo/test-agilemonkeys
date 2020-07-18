@@ -162,6 +162,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 * Azure with a Visual Studio Subscription
 * Jenkins
 * Terraform => v0.12
+* AZ cli --> (curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash)
 * For Terratest --> Go v0.13
 
 ### Constrains
