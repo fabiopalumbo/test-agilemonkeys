@@ -228,6 +228,8 @@ Saturation
 * Enable multi-factor authentication (MFA) for privileged users
 * Use Groups to Assign Permissions to Users through Active directory
 * Least Privileged 
+* Azure Active Directory Sync with federated Services
+
 ![alt text](/Images/them_permissions.png "Permissions")
 
 ## Disaster Recovery Plan
