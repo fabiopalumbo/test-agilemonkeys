@@ -2,7 +2,7 @@
 resource "azurerm_app_service_plan" "service-plan" {
   name = "${var.environment}-service-plan"
   location = var.location
-  resource_group_name = var.resource_name
+  resource_group_name = var.resource_group_name
   kind = "Linux"
   reserved = true
   sku {
@@ -17,7 +17,7 @@ resource "azurerm_app_service_plan" "service-plan" {
 resource "azurerm_app_service" "app-service" {
   name = "${var.environment}-app-service"
   location = var.location
-  resource_group_name = var.resource_name
+  resource_group_name = var.resource_group_name
   app_service_plan_id = azurerm_app_service_plan.service-plan.id
   site_config {
     linux_fx_version = "DOTNETCORE|3.1"
