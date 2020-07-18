@@ -2,14 +2,15 @@ resource "azurerm_sql_server" "devops" {
   name                = "${var.project}-${var.db_name}-${var.db_type}"
   location            = var.location
   resource_group_name = var.resource_group_name
-
+  
+  /*
   sku {
     name     = var.sku_name
     capacity = var.sku_capacity
     tier     = var.sku_tier
     family   = var.sku_family
   }
-
+  */
 
   storage_profile {
     storage_mb            = var.storage_mb
