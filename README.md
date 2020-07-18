@@ -30,6 +30,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 * [CICD - Jenkins](#jenkins)
 * [Observability](#observability)
 * [Permissions](#permissions)
+* [Migration](#migration)
 * [Budget](#budget)
 * [Next Steps](#next-steps)
 
