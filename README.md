@@ -29,7 +29,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 * [Proposed Architecture](#proposed-architecture)
 * [CICD - Jenkins](#jenkins)
 * [Observability](#observability)
-* [permissions](#permissions)
+* [Permissions](#permissions)
 * [Budget](#budget)
 * [Next Steps](#next-steps)
 
