@@ -36,8 +36,8 @@ resource "azurerm_virtual_machine" "devops" {
 
     storage_image_reference {
         publisher = "RedHat"
-        offer     = "${var.vmtype}"
-        sku       = "${var.vmsku}"
+        offer     = var.vmtype
+        sku       = var.vmsku
         version   = "latest"
     }
 
