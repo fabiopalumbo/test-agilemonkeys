@@ -36,7 +36,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-(#current-architecture)## Current Architecture.
+## Current Architecture.
 <details>
 <summary>Test Details</summary>
 
@@ -96,10 +96,10 @@ We are expecting:
 ```
 </details>
 
-(#current-diagram)# Current Diagram
+## Current Diagram
 ![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
-(#current-questions)## Questions
+## Questions
 <details>
 <summary>User / Permissions Migration</summary>
 
@@ -172,7 +172,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ```
 </details>
 
-(#proposed-architecture)# Proposed Azure Architecture
+# Proposed Architecture
 ![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Requirement
@@ -190,7 +190,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 (#jenkins)## Jenkins Automation
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
 
-(#terratest)## Terratest
+## Terratest
 
 
 <details>
@@ -1611,7 +1611,7 @@ Plan: 38 to add, 0 to change, 0 to destroy.
 ```
 </details>
 
-(#observability)## Observability
+## Observability
 Four Golden Signals
 
 It's very easy to create dashboards with dozens of meaningless machine and application metrics, time-series graphs, and dashboards full of widgets that will only serve to overwhelm you and hide the truth.
@@ -1647,7 +1647,7 @@ Saturation
 * Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
 </details>
 
-(#permissions)## Permissions in this new account
+## Permissions
 
 ### Best Practices
 * Enable multi-factor authentication (MFA) for privileged users
@@ -1667,7 +1667,7 @@ Saturation
 ## Compliance
 * GDPR (data layer stored in EU-WEST)
 
-(#migration)# Migration
+# Migration
 ![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3. "Migration").
 
 Advantages of Replatforming
@@ -1689,12 +1689,13 @@ When you migrate databases to Azure by using Azure Database Migration Service, y
 We will use an Online approach with the Azure Database Migrate (Oracle --> Azure Postgresql Online)
 https://docs.microsoft.com/en-us/azure/dms/tutorial-oracle-azure-postgresql-online
 
+## Budget
 
-(#budget)## Budget Calculation
+Calculation Report
 
 Ref. https://azure.microsoft.com/en-us/pricing/tco/calculator/
 
-(#next-steps)# Next Steps
+# Next Steps
 
 ## Event-Driven Architecture as a Solution
 As well as you can build your systems with event-driven structures, you can also use it as a solution to your already built highly coupled environments. Let’s discuss how we can apply the event-driven approach as a solution.
