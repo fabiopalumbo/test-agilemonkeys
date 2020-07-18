@@ -14,8 +14,8 @@ output "sql_server_fqdn" {
   value       = azurerm_sql_server.devops.fully_qualified_domain_name
 }
 
-output "network_interface_private_ip" {
-  value       = azurerm_sql_server.devops.network_interface_private_ip
-}
+#output "network_interface_private_ip" {
+#  value       = azurerm_sql_server.devops.network_interface_private_ip
+#}
 
 
