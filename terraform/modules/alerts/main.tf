@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "to_monitor" {
-  name                     = "examplestorageaccount"
+  name                     = "Alert_Storage"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
