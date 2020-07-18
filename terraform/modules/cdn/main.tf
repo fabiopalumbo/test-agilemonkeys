@@ -10,7 +10,7 @@ resource "azurerm_storage_account" "appstorage" {
   
 resource "azurerm_storage_container" "blob" {
   name                  = "blob"
-  resource_group_name   = var.resource_group_name
+  #resource_group_name   = var.resource_group_name
   storage_account_name  = azurerm_storage_account.appstorage.name
   container_access_type = "blob"
 }
