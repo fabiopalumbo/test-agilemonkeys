@@ -8,7 +8,7 @@ resource "azurerm_storage_account" "to_monitor" {
 
 resource "azurerm_monitor_action_group" "main" {
   name                = "${var.alert_name}-actiongroup"
-  resource_group_name = var.resource_name
+  resource_group_name = var.resource_group_name
   short_name          = "${var.alert_name}act"
 
   webhook_receiver {
@@ -19,7 +19,7 @@ resource "azurerm_monitor_action_group" "main" {
 
 resource "azurerm_monitor_metric_alert" "this" {
   name                = "${var.alert_name}-metricalert"
-  resource_group_name = var.resource_name
+  resource_group_name = var.resource_group_name
   scopes              = [azurerm_storage_account.to_monitor.id]
   description         = "Action will be triggered when Transactions count is greater than 50."
 
