@@ -216,7 +216,7 @@ module "db" {
  geo_redundant_backup  = "Disabled"
  db_useradmin= var.db_useradmin
  db_password = var.db_password
- db_version = "9.5"
+ db_version = "12.0"
 
 }
 
