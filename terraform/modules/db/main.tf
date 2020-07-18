@@ -20,6 +20,6 @@ resource "azurerm_sql_server" "devops" {
   administrator_login          = var.db_useradmin
   administrator_login_password = var.db_password
   version                      = var.db_version
-  ssl_enforcement              = "Enabled"
+  # ssl_enforcement              = "Enabled"
 }
 
