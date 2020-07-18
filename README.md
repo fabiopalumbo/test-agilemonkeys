@@ -1,6 +1,4 @@
-
-
-# tTst-agilemonkeys
+# Test-agilemonkeys
 A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px"></h2>
 
 <a href="https://www.linkedin.com/in/fppalumbo/">
@@ -87,6 +85,7 @@ We are expecting:
 ## Questions
 <details>
 <summary>User / Permissions Migration</summary>
+
 ```
 Are the users using auth/authentication federated service? SSO auth?
 
@@ -96,6 +95,7 @@ In the future we might incorporate federated auth that will allow us to fill out
 </details>
 <details>
 <summary>Data Migration</summary>
+  
 ```
 *Are we planning to migrate Oracle “As is” with license
 Yes. However, we are open to suggestions if we could cut cost but keeping the performance and reliability.
@@ -109,6 +109,7 @@ Yes, since we are dealing with sensitive data, we have to comply with EU regulat
 </details>
 <details>
 <summary>Interface System Constraints</summary>
+  
 ```
 The External API call to Equifax have any constrains? concurrency? limits?
 Equifax has a rate limit of 100 API request per second. This service is widely consumed by other companies and services.
@@ -131,6 +132,7 @@ The online form has static content and it is owned by us.
 </details>
 <details>
 <summary>Budget</summary>
+  
 ```
 Do we have budget limitations?
 As many other financial enterprises, we are heavily investing in technology and budget should not be an issue. However, it would be great to have some realistic figure on the expected cost per month once we move to the cloud.
@@ -138,6 +140,7 @@ As many other financial enterprises, we are heavily investing in technology and 
 </details>
 <details>
 <summary>Budget</summary>
+  
 ```
 
 Do we have the need of a high available System?
@@ -173,6 +176,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 
 <details>
 <summary>Summary</summary>
+  
 ```
 
 ------------------------------------------------------------------------
@@ -197,7 +201,9 @@ Traffic
 Errors
 Saturation
 ```
-
+<details>
+<summary>Summary</summary>
+  
 Latency
 What: How long something takes to respond or complete
 Why: Direct impact on customer experience
@@ -214,6 +220,7 @@ Why: A solid indication of customer experience and the value - or lack thereof -
 Saturation
 What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
 Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
+</details>
 
 ## Permissions in this new account
 
