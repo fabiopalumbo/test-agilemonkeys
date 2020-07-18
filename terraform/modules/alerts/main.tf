@@ -17,7 +17,7 @@ resource "azurerm_monitor_action_group" "main" {
   }
 }
 
-resource "azurerm_monitor_metric_alert" "example" {
+resource "azurerm_monitor_metric_alert" "this" {
   name                = "${var.alert_name}-metricalert"
   resource_group_name = azurerm_resource_group.main.name
   scopes              = [azurerm_storage_account.to_monitor.id]
