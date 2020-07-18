@@ -11,13 +11,14 @@ resource "azurerm_sql_server" "devops" {
     family   = var.sku_family
   }
   */
-
+  /*
   storage_profile {
     storage_mb            = var.storage_mb
     backup_retention_days = var.backup_retention_days
     geo_redundant_backup  = "Disabled"
   }
-
+  */
+    
   administrator_login          = var.db_useradmin
   administrator_login_password = var.db_password
   version                      = var.db_version
