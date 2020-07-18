@@ -227,7 +227,7 @@ module "alert_1" {
  resource_group_name = "${var.env}-${var.project}-RG"
  location = var.location
  alert_name = "Test1"
- //criteria = ""
+ #criteria = ""
  environment = var.env
 }
 
@@ -236,7 +236,7 @@ module "alert_2" {
  resource_group_name = "${var.env}-${var.project}-RG"
  location = var.location
  alert_name = "Test2"
- //criteria = ""
+ #criteria = ""
  environment = var.env
 }  
   
