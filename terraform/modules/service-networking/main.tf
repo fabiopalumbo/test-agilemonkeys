@@ -19,7 +19,7 @@ resource "azurerm_express_route_circuit" "this" {
 }
 
 # Queue
-resource "azurerm_storage_account" "this" {
+resource "azurerm_storage_account" "this_storage" {
   name                     = "${var.environment}storageacc"
   resource_group_name      = var.resource_group_name
   location                 = var.location
@@ -27,20 +27,20 @@ resource "azurerm_storage_account" "this" {
   account_replication_type = "LRS"
 }
 
-resource "azurerm_storage_queue" "this" {
+resource "azurerm_storage_queue" "this_queue" {
   name                 = "${var.environment}queue"
-  storage_account_name =  var.resource_group_name
+  storage_account_name =  azurerm_storage_account.this_storage.name
 }
 
 ## DNS
-resource "azurerm_dns_zone" "this" {
+resource "azurerm_dns_zone" "this_dns" {
   name                = var.domain
   resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_dns_a_record" "example" {
   name                = "test"
-  zone_name           = azurerm_dns_zone.this.name
+  zone_name           = azurerm_dns_zone.this_dns.name
   resource_group_name = var.resource_group_name
   ttl                 = 300
   records             = ["10.0.180.17"]
