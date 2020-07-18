@@ -7,18 +7,18 @@ resource "azurerm_storage_account" "to_monitor" {
 }
 
 resource "azurerm_monitor_action_group" "main" {
-  name                = "example-actiongroup"
+  name                = "${var.alert_name}-actiongroup"
   resource_group_name = azurerm_resource_group.main.name
-  short_name          = "exampleact"
+  short_name          = "${var.alert_name}act"
 
   webhook_receiver {
-    name        = "callmyapi"
-    service_uri = "http://example.com/alert"
+    name        = "slack"
+    service_uri = "https://hooks.slack.com/services/{azerty}/XXXXXXXXXXXXXXx/{hook-key}"
   }
 }
 
 resource "azurerm_monitor_metric_alert" "example" {
-  name                = "example-metricalert"
+  name                = "${var.alert_name}-metricalert"
   resource_group_name = azurerm_resource_group.main.name
   scopes              = [azurerm_storage_account.to_monitor.id]
   description         = "Action will be triggered when Transactions count is greater than 50."
