@@ -10,7 +10,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 <br />
 <img align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
 
-### i am Fabio Palumbo
+### I am Fabio Palumbo
 - CKA 
 - Solution Architect AWS
 - Currently working on Azure 204 Certification
@@ -21,7 +21,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 
 ## Current Architecture.
 <details>
-<summary>Sumary</summary>
+<summary>Test Details</summary>
 
 ```
 Let’s imagine that a Bank has a monolithic architecture to handle the enrollment for new credit cards.
@@ -139,7 +139,7 @@ As many other financial enterprises, we are heavily investing in technology and 
 ```
 </details>
 <details>
-<summary>Budget</summary>
+<summary>Application design</summary>
   
 ```
 
