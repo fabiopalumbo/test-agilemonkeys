@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "to_monitor" {
-  name                     = "Alert_Storage"
+  name                     = "AlertStorage"
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
