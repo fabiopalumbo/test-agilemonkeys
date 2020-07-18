@@ -1,13 +1,16 @@
-/*
+
 resource "azurerm_storage_account" "appstorage" {
-  name                      = "appstorage${var.environment}"
-  resource_group_name       = var.resource_group_name
-  location                  = var.location
-  account_tier              = "Standard"
-  account_replication_type  = "RAGRS"
-  account_kind              = "BlobStorage"
+  name                = "appstorage${random_id.randomId.hex}"
+  resource_group_name = var.resource_group_name
+  location            = var.az_region
+  account_replication_type = "LRS"
+  account_tier = "Standard"
+
+    tags = {
+        environment = var.env
+    }  
 }
-*/
+
   
 resource "azurerm_storage_container" "blob" {
   name                  = "blob"
