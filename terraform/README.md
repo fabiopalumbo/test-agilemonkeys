@@ -18,35 +18,35 @@ This will azure that minor changes won’t affect the application functioning.Or
 
 This architecture builds and includes the following components:
 
-* Web app
-** A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see API design guidance.
+1 Web app
+ * A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see API design guidance.
 
-* Front Door
-** Front Door is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a web application firewall (WAF) that protects the application from common exploits and vulnerabilities.
+2 Front Door
+ * Front Door is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a web application firewall (WAF) that protects the application from common exploits and vulnerabilities.
 
-* VM instance with ASG
-** Legacy process will be handled and deployed in a VM instance with an ASG attached to it, ASG scaling rule will be base on CPU consumption.
+3 VM instance with ASG
+ * Legacy process will be handled and deployed in a VM instance with an ASG attached to it, ASG scaling rule will be base on CPU consumption.
 
-* Database
-** a Azure SQL instance will be deployed, and a Data Migration plan to Mirror the current Schema to the new DB. Optimizing Cost
+4 Database
+ * a Azure SQL instance will be deployed, and a Data Migration plan to Mirror the current Schema to the new DB. Optimizing Cost
 
-* Queue
-** In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a the process app. Alternatively, we can use Service Bus queues. 
+5 Queue
+ * In the architecture shown here, the application queues background tasks by putting a message onto an Azure Queue storage queue. The message triggers a the process app. Alternatively, we can use Service Bus queues. 
 
-* CDN
-** Use Azure Content Delivery Network (CDN) to cache publicly available content for lower latency and faster delivery of content.
+6 CDN
+ * Use Azure Content Delivery Network (CDN) to cache publicly available content for lower latency and faster delivery of content.
 
-* Data storage
-** Blobl Storage for CDN static files
+7 Data storage
+ * Blobl Storage for CDN static files
 
-* Azure DNS
-** Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+8 Azure DNS
+ * Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-* Express Route
-** Will be user to handle conenction with On-premise core applications withouth going to the public layer, enforcing security.
+9 Express Route
+ * Will be user to handle conenction with On-premise core applications withouth going to the public layer, enforcing security.
 
-* Cache
-**  Store semi-static data in Azure Cache for Redis from routine calls to Core process.
+10 Cache
+*  Store semi-static data in Azure Cache for Redis from routine calls to Core process.
 
 ## Apply
 
