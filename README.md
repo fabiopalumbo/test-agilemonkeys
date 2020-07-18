@@ -19,7 +19,24 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 ⭐️ From [fabiopalumbo](https://https://github.com/fabiopalumbo/)
 
 
-## Current Architecture.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+## Index
+* [Current Architecture](#current-architecture)
+* [Current Diagram](#current-diagram)
+* [Questions](#current-questions)
+* [Proposed Architecture](#proposed-architecture)
+* [CICD - Jenkins](#jenkins)
+* [Observability](#observability)
+* [permissions](#permissions)
+* [Budget](#budget)
+* [Next Steps](#next-steps)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+(#current-architecture)## Current Architecture.
 <details>
 <summary>Test Details</summary>
 
@@ -79,10 +96,10 @@ We are expecting:
 ```
 </details>
 
-# Current Architecture Diagram
+(#current-diagram)# Current Diagram
 ![alt text](/Images/them_current_Arch.png "Azure Current diagram")
 
-## Questions
+(#current-questions)## Questions
 <details>
 <summary>User / Permissions Migration</summary>
 
@@ -155,7 +172,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ```
 </details>
 
-# Proposed Azure Architecture
+(#proposed-architecture)# Proposed Azure Architecture
 ![alt text](/Images/them_new_architecture.png "Proposed Azure diagram")
 
 ## Requirement
@@ -170,10 +187,10 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 * Due to GDPR compliance we will store our data resources under in eu-west region
 * Vm server should be RHEL due to application requirements
 
-## Jenkins Automation
+(#jenkins)## Jenkins Automation
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
 
-## Terratest
+(#terratest)## Terratest
 
 
 <details>
@@ -1594,7 +1611,7 @@ Plan: 38 to add, 0 to change, 0 to destroy.
 ```
 </details>
 
-## Observability
+(#observability)## Observability
 Four Golden Signals
 
 It's very easy to create dashboards with dozens of meaningless machine and application metrics, time-series graphs, and dashboards full of widgets that will only serve to overwhelm you and hide the truth.
@@ -1630,7 +1647,7 @@ Saturation
 * Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
 </details>
 
-## Permissions in this new account
+(#permissions)## Permissions in this new account
 
 ### Best Practices
 * Enable multi-factor authentication (MFA) for privileged users
@@ -1640,7 +1657,7 @@ Saturation
 
 ![alt text](/Images/them_permissions.png "Permissions")
 
-## Disaster Recovery Plan
+(#disaster-recoverye)## Disaster Recovery Plan
 * Due to the determination of the RTO y RPO we will desing a strategy based in:
 ** Bakend layer autoscaling
 ** Backup lifecycles of 24 hs por the Backend layer
@@ -1650,7 +1667,7 @@ Saturation
 ## Compliance
 * GDPR (data layer stored in EU-WEST)
 
-# Migration
+(#migration)# Migration
 ![alt text](https://cdn-images-1.medium.com/max/1600/0*WW36nabYAh5wn2v3. "Migration").
 
 Advantages of Replatforming
@@ -1673,11 +1690,11 @@ We will use an Online approach with the Azure Database Migrate (Oracle --> Azure
 https://docs.microsoft.com/en-us/azure/dms/tutorial-oracle-azure-postgresql-online
 
 
-## Budget Calculation
+(#budget)## Budget Calculation
 
 Ref. https://azure.microsoft.com/en-us/pricing/tco/calculator/
 
-# Next Steps
+(#next-steps)# Next Steps
 
 ## Event-Driven Architecture as a Solution
 As well as you can build your systems with event-driven structures, you can also use it as a solution to your already built highly coupled environments. Let’s discuss how we can apply the event-driven approach as a solution.
