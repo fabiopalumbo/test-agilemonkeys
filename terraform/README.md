@@ -61,12 +61,11 @@ https://www.terraform.io/docs/providers/azurem/index.html
 Run with a command like this:
 
 ```
-terraform apply -var 'to be defined'    
+terraform apply -var 'ssh_public_key=location_of_public_key' -var public_key=ssha-rsa for bastion connection' 
 ```
-
 
 For example:
 
 ```
-terraform apply -var 'to be defined'    
+terraform apply -var 'ssh_public_key=~/.ssh/id_rsa.pub' -var 'public_key=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCohXWgFUTuzH1Jmbo+TB+b85kR/7D/0L1'    
 ```
