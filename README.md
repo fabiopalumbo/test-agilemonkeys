@@ -167,6 +167,7 @@ CICD Jenkins/CircleCI, SonarQube, Dependabot, we also do testing (unit testing, 
 ### Constrains
 * Blob Storage for Terraform State
 * Due to GDPR compliance we will store our data resources under in eu-west region
+* Vm server should be RHEL due to application requirements
 
 ## Jenkins Automation
 ![alt text](/Images/them_terratest.png "Jenkins Automation")
