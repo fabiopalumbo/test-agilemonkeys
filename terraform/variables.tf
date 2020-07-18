@@ -1,6 +1,6 @@
 ## General ENV
 
-variable "env" {default = "DEV"}
+variable "env" {default = "dev"}
 variable "project" {default = "demo"}
 
 ## Resource Group
@@ -11,7 +11,7 @@ variable "location" {
 
 ## Azure region
 
-variable "az_region" {default = "EastUS"}
+variable "az_region" {default = "Ireland"}
 
 ## VMS
 variable "vm_size" {
