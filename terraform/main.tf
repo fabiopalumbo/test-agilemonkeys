@@ -223,7 +223,7 @@ module "db" {
 ################################################################################
 ## 
 module "alert_1" {
- source = "./modules/alert"
+ source = "./modules/alerts"
  resource_group_name = "${var.env}-${var.project}-RG"
  location = var.location
  alert_name = "Test1"
@@ -232,7 +232,7 @@ module "alert_1" {
 }
 
 module "alert_2" {
- source = "./modules/alert"
+ source = "./modules/alerts"
  resource_group_name = "${var.env}-${var.project}-RG"
  location = var.location
  alert_name = "Test2"
