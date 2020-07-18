@@ -112,8 +112,8 @@ resource "azurerm_route_table" "devops" {
 module "whitelistsg" {
  source = "./modules/whitelist-sg"
  wsg_name = "whitelistsg"
- project = "${var.project}"
- location= "${var.location}"
+ project = var.project
+ location= var.location
  resource_group_name = "${azurerm_resource_group.devops.name}"
  #protocol = "${var.protocol}"
  #source_address_prefixes = ${var.ip_whitelist} 
@@ -141,13 +141,13 @@ resource "random_id" "randomId" {
 
 resource "azurerm_storage_account" "devops" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.devops.name}"
-    location            = "${var.az_region}"
+    resource_group_name = azurerm_resource_group.devops.name
+    location            = var.az_region
     account_replication_type = "LRS"
     account_tier = "Standard"
 
     tags = {
-        environment = "${var.env}"
+        environment = var.env
     }
 }
 
@@ -202,7 +202,7 @@ module "app" {
 module "db" {
  source = "./modules/db"
  db_name = "db"
- db_type = "mysql"
+ db_type = "sql"
  project = var.project
  location= var.location
  resource_group_name = azurerm_resource_group.devops.name
@@ -222,7 +222,23 @@ module "db" {
 ## Alert metrics
 ################################################################################
 ## 
-  
+module "alert_1" {
+ source = "./modules/alert"
+ resource_group_name = "${var.env}-${var.project}-RG"
+ location = var.location
+ alert_name = "Test1"
+ //criteria = ""
+ environment = var.env
+}
+
+module "alert_2" {
+ source = "./modules/alert"
+ resource_group_name = "${var.env}-${var.project}-RG"
+ location = var.location
+ alert_name = "Test2"
+ //criteria = ""
+ environment = var.env
+}  
   
   
 ## Backup Vms
@@ -244,17 +260,37 @@ module "app-backup" {
 
 ## Azure CDN
 ################################################################################
-
+module "cdn" {
+ source = "./modules/cdn"
+ project = var.project
+ location= var.location
+ resource_group_name = "${var.env}-${var.project}-RG"
+ environment = var.env
+}
 
 
 
 ## Services Networking 
 ################################################################################
-
-# Express Route
+# Express Route # Queue # DNS Record
   
-# Queue  
+module "service_networking" {
+ source = "./modules/service-networking"
+ project = var.project
+ location= var.location
+ resource_group_name = "${var.env}-${var.project}-RG"
+ environment = var.env
   
-# DNS Record
+}  
 
-
+## Fornt End
+################################################################################
+# Front Door # Appservices
+  
+module "frontend" {
+ source = "./modules/serverless"
+ project = var.project
+ location= var.location
+ resource_group_name = "${var.env}-${var.project}-RG"
+ environment = var.env   
+}  
