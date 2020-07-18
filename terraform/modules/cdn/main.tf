@@ -1,4 +1,4 @@
-
+/*
 resource "azurerm_storage_account" "appstorage" {
   name                      = "appstorage${var.environment}"
   resource_group_name       = var.resource_group_name
@@ -7,7 +7,8 @@ resource "azurerm_storage_account" "appstorage" {
   account_replication_type  = "RAGRS"
   account_kind              = "BlobStorage"
 }
-
+*/
+  
 resource "azurerm_storage_container" "blob" {
   name                  = "blob"
   resource_group_name   = var.resource_group_name
