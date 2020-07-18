@@ -28,6 +28,7 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 * [Questions](#current-questions)
 * [Proposed Architecture](#proposed-architecture)
 * [CICD - Jenkins](#jenkins)
+* [Terratest](#terratest)
 * [Observability](#observability)
 * [Permissions](#permissions)
 * [Migration](#migration)
