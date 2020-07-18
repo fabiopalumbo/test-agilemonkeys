@@ -205,26 +205,26 @@ Saturation
 <summary>Summary</summary>
   
 Latency
-What: How long something takes to respond or complete
-Why: Direct impact on customer experience
+* What: How long something takes to respond or complete
+* Why: Direct impact on customer experience
 
 Traffic
-What: Total volume of work being done (or attempted)
-Why: Generally has a relationship to business volume, which maps directly to business value.
+* What: Total volume of work being done (or attempted)
+* Why: Generally has a relationship to business volume, which maps directly to business value.
 
 
 Errors
-What: Self explanatory! Usually expressed as a ratio of (# Failed Requests)/(# Successful Requests), which yields a simple, clearly defined target to aim for.
-Why: A solid indication of customer experience and the value - or lack thereof - being derived from our services. It's also so simple to understand that it is accessible to anyone in the organization, making it a very powerful indicator.
+* What: Self explanatory! Usually expressed as a ratio of (# Failed Requests)/(# Successful Requests), which yields a simple, clearly defined target to aim for.
+* Why: A solid indication of customer experience and the value - or lack thereof - being derived from our services. It's also so simple to understand that it is accessible to anyone in the organization, making it a very powerful indicator.
 
 Saturation
-What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
-Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
+* What: Ok, this one is a little tricky but tl;dr: How close are we to our total available capacity?
+* Why: Has a direct relationship to scaling and capacity planning. This is what ensures we can keep the machine running!
 </details>
 
 ## Permissions in this new account
 
-Best Practices
+### Best Practices
 * Enable multi-factor authentication (MFA) for privileged users
 * Use Groups to Assign Permissions to Users through Active directory
 * Least Privileged 
