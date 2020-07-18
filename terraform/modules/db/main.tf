@@ -1,4 +1,4 @@
-resource "azurerm_mysql_server" "devops" {
+resource "azurerm_sql_server" "devops" {
   name                = "${var.project}-${var.db_name}-${var.db_type}"
   location            = var.location
   resource_group_name = var.resource_group_name
