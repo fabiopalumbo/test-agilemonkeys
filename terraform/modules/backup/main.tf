@@ -5,6 +5,7 @@ resource "azurerm_recovery_services_vault" "devops" {
   sku                 = "Standard"
 }
 
+/*
 resource "azurerm_recovery_services_protection_policy_vm" "devops" {
   name                = "${var.project}-vault-policy"
   resource_group_name = var.resource_group_name
@@ -26,3 +27,4 @@ resource "azurerm_recovery_services_protected_vm" "vm1" {
   source_vm_id        = var.vm_id
   backup_policy_id    = azurerm_recovery_services_protection_policy_vm.devops.id
 }
+*/
