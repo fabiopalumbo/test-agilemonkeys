@@ -3,7 +3,7 @@ resource "azurerm_network_interface" "devops" {
     name                = "${var.project}-${var.vm_name}-NIC"
     location            = var.location
     resource_group_name = var.resource_group_name
-    network_security_group_id = var.network_security_group
+    #network_security_group_id = var.network_security_group
 
     ip_configuration {
         name                          = "${var.project}-${var.vm_name}-NICConfiguration"
