@@ -1659,7 +1659,7 @@ Saturation
 
 ![alt text](/Images/them_permissions.png "Permissions")
 
-(#disaster-recoverye)## Disaster Recovery Plan
+## Disaster Recovery Plan
 * Due to the determination of the RTO y RPO we will desing a strategy based in:
 ** Bakend layer autoscaling
 ** Backup lifecycles of 24 hs por the Backend layer
