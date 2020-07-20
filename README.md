@@ -27,13 +27,14 @@ A short test for Agile Monkeys <img src="https://raw.githubusercontent.com/iampa
 * [Current Diagram](#current-diagram)
 * [Questions](#current-questions)
 * [Proposed Architecture](#proposed-architecture)
-* [CICD - Jenkins](#jenkins)
+* [CICD - Architecture](#jenkins)
 * [Terratest](#terratest)
 * [Observability](#observability)
 * [Permissions](#permissions)
 * [Migration](#migration)
 * [Budget](#budget)
 * [Next Steps](#next-steps)
+* [CICD - Application](#cicd-application)
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1691,7 +1692,19 @@ When you migrate databases to Azure by using Azure Database Migration Service, y
 We will use an Online approach with the Azure Database Migrate (Oracle --> Azure Postgresql Online)
 https://docs.microsoft.com/en-us/azure/dms/tutorial-oracle-azure-postgresql-online
 
-## Budget
+# CICD Application
+
+Using a CI/CD we will automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. 
+
+## Frontend
+
+![alt text](/Images/them_cicd.png "Azure FrontEnd diagram")
+
+## Backend
+
+![alt text](/Images/them_cicd2.png "Azure Backend diagram")
+
+# Budget
 
 Calculation Report
 
